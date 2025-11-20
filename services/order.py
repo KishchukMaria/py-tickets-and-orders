@@ -9,7 +9,7 @@ from db.models import Order, Ticket
 
 @transaction.atomic
 def create_order(
-        tickets: list[Ticket],
+        tickets: list[dict],
         username: str,
         date: str = None,
 ) -> Order:
@@ -32,7 +32,7 @@ def create_order(
 
 
 @transaction.atomic
-def get_orders(username: str = None) -> QuerySet:
+def get_orders(username: str = None) -> QuerySet[Order]:
     qs = Order.objects.select_related("user")
     if username:
         qs = qs.filter(user__username=username)

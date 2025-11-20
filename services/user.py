@@ -14,6 +14,7 @@ def create_user(
         username=username,
         password=password
     )
+
     if email is not None:
         user.email = email
     if first_name is not None:
