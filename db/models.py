@@ -97,7 +97,7 @@ class Ticket(models.Model):
                 {
                     "row": [
                         "row number must be in available range: "
-                        "(1, rows): (1, 10)"
+                        f"(1, rows): (1, {cinema_hall.rows})"
                     ]
                 }
             )
@@ -106,7 +106,7 @@ class Ticket(models.Model):
                 {
                     "seat": [
                         "seat number must be in available range: "
-                        "(1, seats_in_row): (1, 12)"
+                        f"(1, seats_in_row): (1, {cinema_hall.seats_in_row})"
                     ]
                 }
             )
